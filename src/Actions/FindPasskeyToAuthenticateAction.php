@@ -70,6 +70,7 @@ class FindPasskeyToAuthenticateAction
     protected function findPasskey(PublicKeyCredential $publicKeyCredential): ?Passkey
     {
         $passkeyModel = Config::getPassKeyModel();
+        $rawId = base64_encode($publicKeyCredential->rawId);
 
         return $passkeyModel::firstWhere('credential_id', $publicKeyCredential->rawId);
     }

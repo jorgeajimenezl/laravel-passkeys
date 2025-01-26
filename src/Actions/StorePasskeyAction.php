@@ -29,6 +29,7 @@ class StorePasskeyAction
             $passkeyOptionsJson,
             $hostName
         );
+        $publicKeyCredentialSource->publicKeyCredentialId = base64_encode($publicKeyCredentialSource->publicKeyCredentialId);
 
         return $authenticatable->passkeys()->create([
             ...$additionalProperties,
